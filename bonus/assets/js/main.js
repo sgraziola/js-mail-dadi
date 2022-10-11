@@ -4,6 +4,8 @@ const emailElement = document.querySelector("input");
 const invioBtn = document.querySelector("button");
 const validEmails = ["dimaio@gmail.com", "berlusconi@tiscali.it", "prodi@virgilio.it", "letta@gmail.com", "meloni@libero.it", "salvini@fastwebnet.it"];
 const resultEl = document.querySelector(".result");
+const diceContainer = document.querySelector(".dice_container");
+
 invioBtn.addEventListener("click", function(){
     const validEmail = emailElement.value;
     //console.log(validEmail);
@@ -16,11 +18,13 @@ invioBtn.addEventListener("click", function(){
         //- If/else a seconda che l'email compaia o meno creo un messaggio
     if(validEmail === validEmailEl){
         resultEl.innerHTML=("Complimenti! Sei uno dei nostri fantastici politici.");
+        diceContainer.style.display = "flex";
         break; 
     } else {
         resultEl.innerHTML=("Mi dispiace, non fai parte della fantastica classe politica italiana");
     }
     }
+
 })
 
 
