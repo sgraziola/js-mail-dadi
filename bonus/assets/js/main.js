@@ -9,7 +9,8 @@ const diceContainer = document.querySelector(".dice_container");
 invioBtn.addEventListener("click", function(){
     const validEmail = emailElement.value;
     //console.log(validEmail);
-    
+    let isValid = "Mi dispiace, non fai parte della fantastica classe politica italiana";
+
     //-confronto emailElement con i singoli indici dell'array
     for (let i = 0; i < validEmails.length; i++){
     const validEmailEl = validEmails[i];
@@ -17,31 +18,33 @@ invioBtn.addEventListener("click", function(){
     //stampa un messaggio appropriato sull’esito del controllo. 
         //- If/else a seconda che l'email compaia o meno creo un messaggio
     if(validEmail === validEmailEl){
-        resultEl.innerHTML=("Complimenti! Sei uno dei nostri fantastici politici.");
-        diceContainer.style.display = "flex";
-        break; 
-    } else {
-        resultEl.innerHTML=("Mi dispiace, non fai parte della fantastica classe politica italiana");
+        isValid = "Complimenti! Sei uno dei nostri fantastici politici.";
+        diceContainer.style.display = "block"; 
     }
     }
 
+    resultEl.innerHTML= (isValid);
 })
 
 
 
 
 /* Ex Dice Game */
-/* //Generare un numero random da 1 a 6 per il giocatore 
-const playerNum = Math.floor(Math.random()*6) + 1;
-console.log(playerNum);
+const playerNum = document.querySelector(".player_result");
+const pcNum = document.querySelector(".pc_result");
+const winnerEl = document.querySelector(".winner");
+//Generare un numero random da 1 a 6 per il giocatore 
+const playerNumEl = Math.floor(Math.random()*6) + 1;
 //Generare un numero random da 1 a 6 per per il computer.
-const pcNum = Math.floor(Math.random()*6) + 1;
-console.log(pcNum);
+const pcNumEl = Math.floor(Math.random()*6) + 1;
+//stampare i risultati su DOM
+playerNum.innerHTML = playerNumEl;
+pcNum.innerHTML = pcNumEl;
 //Stabilire il vincitore, in base a chi fa il punteggio più alto.
-if(playerNum === pcNum){
-    console.log("Avete pareggiato!");
-} else if (playerNum < pcNum){
-    console.log("Ha vinto il computer");
+if(playerNumEl === pcNumEl){
+    winnerEl.innerHTML = ("Avete pareggiato!");
+} else if (playerNumEl < pcNumEl){
+    winnerEl.innerHTML = ("Ha vinto il computer!");
 } else {
-    console.log("Ha vinto il giocatore");
-}  */
+    winnerEl.innerHTML = ("Hai vinto!");
+} 
