@@ -5,7 +5,7 @@ const emailElement = prompt("Inserisci la tua email");
     //-creo array di email 
 const validEmails = ["dimaio@gmail.com", "berlusconi@tiscali.it", "prodi@virgilio.it", "letta@gmail.com", "meloni@libero.it", "salvini@fastwebnet.it"];
     //-confronto emailElement con i singoli indici dell'array
-for (let i = 0; i < validEmails.length; i++){
+/* for (let i = 0; i < validEmails.length; i++){
     const validEmailEl = validEmails[i];
     //console.log(validEmailEl);
     //stampa un messaggio appropriato sull’esito del controllo. 
@@ -15,4 +15,12 @@ for (let i = 0; i < validEmails.length; i++){
     } else {
         console.log("Mi dispiace, non fai parte della fantastica classe politica italiana");
     }
+} */
+
+
+let index = validEmails.indexOf(emailElement);
+if(index !== -1){
+    console.log("Complimenti! Sei uno dei nostri fantastici politici.");
+} else {
+    console.log("Mi dispiace, non fai parte della fantastica classe politica italiana");
 }
